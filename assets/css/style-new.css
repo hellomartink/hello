@@ -2063,7 +2063,7 @@ main.touch .main-wrap {
 }
 
 .single-about-image .overlay:nth-child(1) {
-   background: url("../img/DSC07312-2.jpg") center center no-repeat;
+   background: url("../img/martin-kairys3.jpg") center center no-repeat;
    background-size: cover;
    top: -20vh;
    height: 105%;
@@ -2314,6 +2314,15 @@ main.touch .main-wrap {
    padding-top: 135%;
    padding-top: 125%;
 }
+.certification-badges {
+   display: flex;
+   gap: 1.5em;
+   flex-wrap: wrap;
+   margin-bottom: 40px;
+}
+.certification-badges img {
+   max-width: 100px;
+}
 
 .about-awwwards .single-image  .overlay:nth-child(1) {
    /* background: url("../img/DSC07292.jpg") center center no-repeat;
@@ -2323,7 +2332,7 @@ main.touch .main-wrap {
    width: 105%;
    left: -5%; */
 
-   background: url("../img/DSC07079.jpg") center center no-repeat;
+   background: url("../img/ux-design-certification.jpg") center center no-repeat;
    background-size: cover;
    top: -3%;
    height: 106%;

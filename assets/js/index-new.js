@@ -855,7 +855,7 @@ function initVisualFilter() {
           }, 300);
       }
     });
-    $('.design-btn').click(function(){
+    $('.fintech-btn').click(function(){
       if ($(this).hasClass('active')) {
       } else {
           $('.toggle-row .btn-normal').removeClass('active');
@@ -865,11 +865,11 @@ function initVisualFilter() {
           // Cookies.set("filter", "design", { expires: 1 });
           setTimeout(function() {
             $('.mouse-pos-list-image li, .mouse-pos-list-image-wrap li, .work-tiles li').removeClass('visible');
-            $('.mouse-pos-list-image li.design, .mouse-pos-list-image-wrap li.design, .work-tiles li.design').addClass('visible');
+            $('.mouse-pos-list-image li.fintech, .mouse-pos-list-image-wrap li.design, .work-tiles li.fintech').addClass('visible');
           }, 300);
       }
     });
-    $('.development-btn').click(function(){
+    $('.crypto-btn').click(function(){
       if ($(this).hasClass('active')) {
       } else {
           $('.toggle-row .btn-normal').removeClass('active');
@@ -879,7 +879,63 @@ function initVisualFilter() {
           // Cookies.set("filter", "development", { expires: 1 });
           setTimeout(function() {
             $('.mouse-pos-list-image li, .mouse-pos-list-image-wrap li, .work-tiles li').removeClass('visible');
-            $('.mouse-pos-list-image li.development, .mouse-pos-list-image-wrap li.development, .work-tiles li.development').addClass('visible');
+            $('.mouse-pos-list-image li.crypto, .mouse-pos-list-image-wrap li.crypto, .work-tiles li.crypto').addClass('visible');
+          }, 300);
+      }
+    });
+    $('.ecommerce-btn').click(function(){
+      if ($(this).hasClass('active')) {
+      } else {
+          $('.toggle-row .btn-normal').removeClass('active');
+          $('.toggle-row .btn-normal').addClass('not-active');
+          $(this).addClass('active');
+          $(this).removeClass('not-active');
+          // Cookies.set("filter", "development", { expires: 1 });
+          setTimeout(function() {
+            $('.mouse-pos-list-image li, .mouse-pos-list-image-wrap li, .work-tiles li').removeClass('visible');
+            $('.mouse-pos-list-image li.ecommerce, .mouse-pos-list-image-wrap li.ecommerce, .work-tiles li.ecommerce').addClass('visible');
+          }, 300);
+      }
+    });
+    $('.health-btn').click(function(){
+      if ($(this).hasClass('active')) {
+      } else {
+          $('.toggle-row .btn-normal').removeClass('active');
+          $('.toggle-row .btn-normal').addClass('not-active');
+          $(this).addClass('active');
+          $(this).removeClass('not-active');
+          // Cookies.set("filter", "development", { expires: 1 });
+          setTimeout(function() {
+            $('.mouse-pos-list-image li, .mouse-pos-list-image-wrap li, .work-tiles li').removeClass('visible');
+            $('.mouse-pos-list-image li.health, .mouse-pos-list-image-wrap li.health, .work-tiles li.health').addClass('visible');
+          }, 300);
+      }
+    });
+    $('.saas-btn').click(function(){
+      if ($(this).hasClass('active')) {
+      } else {
+          $('.toggle-row .btn-normal').removeClass('active');
+          $('.toggle-row .btn-normal').addClass('not-active');
+          $(this).addClass('active');
+          $(this).removeClass('not-active');
+          // Cookies.set("filter", "development", { expires: 1 });
+          setTimeout(function() {
+            $('.mouse-pos-list-image li, .mouse-pos-list-image-wrap li, .work-tiles li').removeClass('visible');
+            $('.mouse-pos-list-image li.saas, .mouse-pos-list-image-wrap li.saas, .work-tiles li.saas').addClass('visible');
+          }, 300);
+      }
+    });
+    $('.other-btn').click(function(){
+      if ($(this).hasClass('active')) {
+      } else {
+          $('.toggle-row .btn-normal').removeClass('active');
+          $('.toggle-row .btn-normal').addClass('not-active');
+          $(this).addClass('active');
+          $(this).removeClass('not-active');
+          // Cookies.set("filter", "development", { expires: 1 });
+          setTimeout(function() {
+            $('.mouse-pos-list-image li, .mouse-pos-list-image-wrap li, .work-tiles li').removeClass('visible');
+            $('.mouse-pos-list-image li.other, .mouse-pos-list-image-wrap li.other, .work-tiles li.other').addClass('visible');
           }, 300);
       }
     });

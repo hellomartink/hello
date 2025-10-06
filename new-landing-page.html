@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>New Landing Page • HelloMartin</title>
+    <meta name="description" content="A new landing page following HelloMartin's design system"/>
+    <meta name="theme-color" content="#1C1D20">
+    
+    <style>
+        /* ------------------------- Fonts -------------------------------------------------- */
+        @font-face {
+            font-family: 'Martin Sans';
+            src: url('assets/fonts/NeueMontreal-Regular.otf') format('opentype');
+            font-weight: 450;
+            font-style: normal;
+            font-display: auto;
+        }
+
+        @font-face {
+            font-family: 'Martin Sans';
+            src: url('assets/fonts/NeueMontreal-Bold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: auto;
+        }
+
+        /* ------------------------- Variables -------------------------------------------------- */
+        :root {
+            --color-dark: #1C1D20;
+            --color-dark-dark: #141517;
+            --color-light: #FFFFFF;
+            --color-blue: #455CE9;
+            --color-blue-dark: #334BD3;
+            --color-gray: #999D9E;
+            --color-lightgray: #E9EAEB;
+            --color-white: #FFFFFF;
+            
+            --color-border: rgba(28, 29, 32, 0.175);
+            --color-border-light: rgba(255, 255, 255, 0.2);
+
+            --color-text: #1C1D20;
+            --color-text-light: #FFF;
+
+            --animation-primary: all .5s cubic-bezier(.7, 0, .3, 1);
+            --animation-fast: all .3s cubic-bezier(.7, 0, .3, 1);
+            --animation-smooth: all .7s cubic-bezier(.7, 0, .3, 1);
+
+            --section-padding: clamp(5em, 21vh, 12em);
+            --container-padding: clamp(2.5em, 8vw, 8em);
+            --gap-padding: clamp(1.5em, 4vw, 2.5em);
+        }
+
+        @media screen and (max-width: 540px){
+            :root { 
+                --container-padding: clamp(1.25em, 4vw, 2.5em);
+                --section-padding: max(2.5em, 12vh);
+            }
+        }
+
+        /* ------------------------- Reset & Base -------------------------------------------------- */
+        *, *:after, *:before { 
+            -webkit-box-sizing: border-box; 
+            -moz-box-sizing: border-box; 
+            box-sizing: border-box; 
+        }
+
+        li, ul {
+            padding: 0; 
+            margin: 0; 
+            list-style: none;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Martin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            font-weight: 450;
+            font-style: normal;
+            font-size: 16px;
+            font-size: clamp(16px, 1.2vw, 19px);
+            background-color: var(--color-dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background-color: var(--color-blue); 
+            color: var(--color-white); 
+            text-shadow: none;
+        }
+
+        /* ------------------------- Typography -------------------------------------------------- */
+        h1, h2, h3, h4, h5, h6, p, a, li, ul, ol, span, strong, em {
+            padding: 0; 
+            margin: 0; 
+            font-style: normal; 
+            font-weight: 450; 
+            letter-spacing: normal;
+        }
+
+        h1 {
+            font-family: 'Martin Sans', sans-serif;
+            font-weight: 450;
+            font-size: calc(clamp(3.25em, 7vw, 8em) * .875);
+            line-height: 1.065;
+            margin-bottom: 0.5em;
+            color: var(--color-white);
+        }
+
+        h2 {
+            font-family: 'Martin Sans', sans-serif;
+            font-weight: 450;
+            font-size: calc(clamp(3.25em, 5vw, 4.5em) * .75);
+            line-height: 1.065;
+            margin-bottom: .66em;
+            color: var(--color-white);
+        }
+
+        h3 {
+            font-family: 'Martin Sans', sans-serif;
+            font-weight: 450;
+            font-size: clamp(1.55em, 2.3vw, 2.5em);
+            line-height: 1.45;
+            margin-bottom: 1em;
+            color: var(--color-white);
+        }
+
+        h5 {
+            font-family: 'Martin Sans', sans-serif;
+            font-weight: 450;
+            font-size: .6em;
+            line-height: 1.065;
+            margin-bottom: 1em;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            opacity: .5;
+            color: var(--color-white);
+        }
+
+        p {
+            font-family: 'Martin Sans', sans-serif;
+            font-weight: 450;
+            font-size: 1em;
+            line-height: 1.66;
+            margin-bottom: 1em;
+            color: var(--color-white);
+        }
+
+        p.big {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        strong {
+            font-weight: 800;
+        }
+
+        a {
+            color: var(--color-blue);
+            text-decoration: none;
+            transition: var(--animation-fast);
+        }
+
+        a:hover {
+            color: var(--color-blue-dark);
+        }
+
+        /* ------------------------- Layout -------------------------------------------------- */
+        .section {
+            display: block;
+            padding-top: var(--section-padding);
+            padding-bottom: var(--section-padding);
+            position: relative;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+            max-width: 100em;
+        }
+
+        .container.medium {
+            padding-left: calc(var(--container-padding) * 2);
+            padding-right: calc(var(--container-padding) * 2);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .flex-col {
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+
+        .stripe {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-border-light);
+            margin: var(--gap-padding) 0;
+        }
+
+        /* ------------------------- Hero Section -------------------------------------------------- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--color-dark);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            animation: fadeInUp 1s cubic-bezier(.7, 0, .3, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.5em 1.25em;
+            background: rgba(69, 92, 233, 0.1);
+            border: 1px solid var(--color-border-light);
+            border-radius: 50px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2em;
+            color: var(--color-blue);
+            animation: fadeInUp 1s cubic-bezier(.7, 0, .3, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-title {
+            max-width: 15em;
+            margin: 0 auto 0.5em auto;
+            animation: fadeInUp 1s cubic-bezier(.7, 0, .3, 1) 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-subtitle {
+            max-width: 35em;
+            margin: 0 auto 2em auto;
+            font-size: 1.2em;
+            opacity: 0.7;
+            animation: fadeInUp 1s cubic-bezier(.7, 0, .3, 1) 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* ------------------------- Buttons -------------------------------------------------- */
+        .btn {
+            margin-bottom: calc(var(--gap-padding) / 2);
+            position: relative;
+            display: inline-block;
+            z-index: 5;
+        }
+
+        .btn-round {
+            border-radius: 50%;
+        }
+
+        .btn-click {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .btn-round .btn-click {
+            width: 11em;
+            height: 11em;
+            border-radius: 50%;
+            background: var(--color-blue);
+            transition: var(--animation-primary);
+        }
+
+        .btn-round .btn-click:hover {
+            background: var(--color-blue-dark);
+            transform: scale(1.05);
+        }
+
+        .btn-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-blue-dark);
+            transform: translateY(100%);
+            transition: var(--animation-primary);
+            z-index: 1;
+        }
+
+        .btn-click:hover .btn-fill {
+            transform: translateY(0);
+        }
+
+        .btn-text {
+            position: relative;
+            z-index: 2;
+            color: var(--color-white);
+            font-weight: 450;
+            font-size: 1.1em;
+            pointer-events: none;
+        }
+
+        .btn-normal {
+            display: inline-block;
+            margin-right: 1em;
+            margin-bottom: 1em;
+        }
+
+        .btn-normal .btn-click {
+            padding: 1.2em 2.5em;
+            border: 1px solid var(--color-border-light);
+            border-radius: 50px;
+            background: transparent;
+            transition: var(--animation-fast);
+        }
+
+        .btn-normal .btn-click:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--color-blue);
+        }
+
+        .btn-normal .btn-text {
+            color: var(--color-white);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5em;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3em;
+            animation: fadeInUp 1s cubic-bezier(.7, 0, .3, 1) 0.5s forwards;
+            opacity: 0;
+        }
+
+        /* ------------------------- Features Section -------------------------------------------------- */
+        .features-section {
+            background: var(--color-dark-dark);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--gap-padding);
+            margin-top: var(--gap-padding);
+        }
+
+        .feature-card {
+            padding: 2.5em;
+            border: 1px solid var(--color-border-light);
+            border-radius: 1em;
+            transition: var(--animation-primary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .feature-card:hover {
+            border-color: var(--color-blue);
+            transform: translateY(-5px);
+            background: rgba(69, 92, 233, 0.05);
+        }
+
+        .feature-icon {
+            width: 3em;
+            height: 3em;
+            background: var(--color-blue);
+            border-radius: 0.75em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5em;
+            font-size: 1.5em;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            margin-bottom: 0.75em;
+            color: var(--color-white);
+        }
+
+        .feature-description {
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        /* ------------------------- Stats Section -------------------------------------------------- */
+        .stats-section {
+            background: var(--color-dark);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--gap-padding);
+            text-align: center;
+            margin-top: var(--gap-padding);
+        }
+
+        .stat-item {
+            padding: 2em;
+        }
+
+        .stat-number {
+            font-size: clamp(3em, 5vw, 4.5em);
+            font-weight: 450;
+            color: var(--color-blue);
+            line-height: 1;
+            margin-bottom: 0.25em;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ------------------------- CTA Section -------------------------------------------------- */
+        .cta-section {
+            background: var(--color-dark-dark);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 45em;
+            margin: 0 auto;
+        }
+
+        /* ------------------------- Footer -------------------------------------------------- */
+        .footer {
+            background: var(--color-dark);
+            padding: var(--section-padding) 0 3em 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2em;
+        }
+
+        .footer-logo {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--color-white);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2em;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--color-white);
+            opacity: 0.6;
+            transition: var(--animation-fast);
+            font-size: 0.95em;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--color-blue);
+        }
+
+        .footer-bottom {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 1px solid var(--color-border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .footer-credits {
+            opacity: 0.5;
+            font-size: 0.9em;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5em;
+        }
+
+        .social-link {
+            color: var(--color-white);
+            opacity: 0.6;
+            transition: var(--animation-fast);
+            font-size: 0.95em;
+        }
+
+        .social-link:hover {
+            opacity: 1;
+            color: var(--color-blue);
+        }
+
+        /* ------------------------- Responsive -------------------------------------------------- */
+        @media screen and (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .btn-round .btn-click {
+                width: 9em;
+                height: 9em;
+            }
+
+            .footer-content,
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links,
+            .footer-socials {
+                justify-content: center;
+            }
+
+            .features-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 540px) {
+            .container.medium {
+                padding-left: var(--container-padding);
+                padding-right: var(--container-padding);
+            }
+        }
+
+        /* ------------------------- Smooth Scroll -------------------------------------------------- */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">New Product Launch</div>
+                <h1 class="hero-title">Transform Your Digital Experience</h1>
+                <p class="hero-subtitle">Innovative solutions that combine cutting-edge design with powerful functionality to elevate your brand</p>
+                
+                <div class="cta-buttons">
+                    <div class="btn btn-round">
+                        <a href="#features" class="btn-click">
+                            <div class="btn-fill"></div>
+                            <span class="btn-text">
+                                <span class="btn-text-inner">Get Started</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="btn btn-normal">
+                        <a href="#contact" class="btn-click">
+                            <div class="btn-fill"></div>
+                            <span class="btn-text">
+                                <span class="btn-text-inner">Learn More</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features-section">
+        <div class="container medium">
+            <div class="row">
+                <div class="flex-col">
+                    <h5>What We Offer</h5>
+                    <h2>Built for Modern Teams</h2>
+                    <p class="big">Everything you need to create exceptional digital experiences, all in one place</p>
+                </div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">Optimized performance that delivers results in milliseconds, keeping your workflow seamless and efficient</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Beautiful Design</h3>
+                    <p class="feature-description">Carefully crafted interfaces that combine aesthetics with usability for an exceptional user experience</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Secure & Reliable</h3>
+                    <p class="feature-description">Enterprise-grade security measures that protect your data while maintaining peak performance</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Easy to Scale</h3>
+                    <p class="feature-description">Infrastructure that grows with your business, from startup to enterprise without compromising quality</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="feature-title">Smart Solutions</h3>
+                    <p class="feature-description">AI-powered features that automate workflows and provide intelligent insights for better decisions</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Global Reach</h3>
+                    <p class="feature-description">Deploy worldwide with multi-region support and localization for audiences across the globe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container medium">
+            <div class="row">
+                <div class="flex-col">
+                    <h5>By The Numbers</h5>
+                    <h2>Trusted By Thousands</h2>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="section cta-section">
+        <div class="container medium">
+            <div class="cta-content">
+                <h5>Ready to Start?</h5>
+                <h2>Let's Build Something Amazing Together</h2>
+                <p class="big">Join thousands of teams already using our platform to create exceptional digital experiences</p>
+                
+                <div class="cta-buttons">
+                    <div class="btn btn-round">
+                        <a href="mailto:hello@example.com" class="btn-click">
+                            <div class="btn-fill"></div>
+                            <span class="btn-text">
+                                <span class="btn-text-inner">Get in Touch</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container medium">
+            <div class="stripe"></div>
+            
+            <div class="footer-content">
+                <div class="footer-logo">HelloMartin</div>
+                <nav class="footer-links">
+                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                    <a href="#work" class="footer-link">Work</a>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-credits">
+                    <p>2025 © Edition</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+                    <a href="https://twitter.com" target="_blank" class="social-link">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

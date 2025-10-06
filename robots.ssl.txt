@@ -1,6 +1,4 @@
 user-agent: *
-disallow: /kirby/
-disallow: /site/
 disallow: /cdn-cgi/
 allow: /media/
-sitemap: https://dennissnellenberg.com/sitemap.xml
+sitemap: https://hellomartin.co.uk/sitemap.xml

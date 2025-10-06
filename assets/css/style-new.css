@@ -709,14 +709,14 @@ main.touch .main-wrap {
 /* ------------------------- Footer - Contact -------------------------------------------------- */
 
 .footer-contact {
-   background: var(--color-dark);
+   background: var(--color-white);
    margin-top: -1px;
    padding-top: 0;
    box-shadow: 0px 5px 0px 5px var(--color-dark);
 }
 
 .footer-contact .bottom-footer {
-   padding-top: 0;
+   padding-top: 60px;
 }
 
 /* ------------------------- Home - Header -------------------------------------------------- */
@@ -1030,11 +1030,11 @@ main.touch .main-wrap {
 
 .work-grid .work-items .flex-col:nth-child(1) {
    padding-left: calc(var(--container-padding) * 1);
-   width: 44%;
+   width: 50%;
 }
 
 .work-grid .work-items .flex-col:nth-child(2) {
-   width: 20%;
+   width: 50%;
    padding-top: .25em;
 }
 
@@ -1326,8 +1326,14 @@ main.touch .main-wrap {
 
 .work-filters .filter-row .toggle-row {
    display: flex;
+   overflow: auto;
 }
-
+.work-filters .filter-row .toggle-row .btn-click {
+    height: 3.25em !important;
+}
+.work-filters .filter-row .toggle-row .btn-click .btn-text {
+       padding: 0 1.5em !important;
+}
 .work-filters .filter-row .toggle-row .btn {
    display: inline-flex;
    margin-right: .5em;
@@ -2535,7 +2541,7 @@ main.touch .main-wrap {
 /* ------------------------- Contact - Header -------------------------------------------------- */
 
 .contact-header {
-   background: var(--color-dark);
+   background: var(--color-white);
    padding-bottom: calc(var(--section-padding) / 3);
 }
 

@@ -1,4 +1,4 @@
 user-agent: *
 disallow: /cdn-cgi/
 allow: /media/
-sitemap: https://hellomartin.co.uk/sitemap.xml
+sitemap: https://www.hellomartin.co.uk/sitemap.xml

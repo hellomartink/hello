@@ -509,7 +509,9 @@ video.overlay {
 .theme-dark .btn-normal .btn-text .btn-text-inner {
     color: var(--color-white) !important;
 }
-
+.theme-dark .button-buy .btn-text .btn-text-inner {
+    color: #000 !important;
+}
 /* --- Button Normal - Dark --- */
 
 .btn-normal.btn-dark .btn-click {
@@ -1334,4 +1336,7 @@ select:-webkit-autofill:focus {
 
 input[type=radio] {
    -webkit-appearance: none;
+}
+.button-buy .btn-text-inner.change {
+    color: #000 !important;
 }
